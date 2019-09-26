@@ -14,7 +14,7 @@ money transfers between accounts.
 
 ### API usage description
 **`/accounts`**
-  - **POST** - add new account 
+  - *POST* - add new account 
       "http://localhost:5000/account
 
 
