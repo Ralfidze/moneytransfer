@@ -28,7 +28,7 @@ public class Application {
 
         Server server = new Server(8083);
         ServletContextHandler context = new ServletContextHandler(ServletContextHandler.SESSIONS);
-        context.setContextPath("/");
+        context.setContextPath("/*");
         server.setHandler(context);
         ServletHolder servletHolder = context.addServlet(ServletContainer.class, "/*");
         servletHolder.setInitParameter("jersey.config.server.provider.classnames",
