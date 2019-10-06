@@ -9,10 +9,7 @@ import org.h2.tools.RunScript;
 import repository.DBRepository;
 import utils.H2SQLConstants;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.sql.*;
 import java.util.List;
 import java.util.Properties;
@@ -116,8 +113,10 @@ public class H2DBRepository implements DBRepository {
         logger.info("Insert data  from sql file ");
 
         try {
+            File f = new File("data.sql");
+            f.exists();
             RunScript.execute(connection, new FileReader(String.valueOf(H2DBRepository.class.getClassLoader()
-                    .getResourceAsStream("data.sql"))));
+                    .getResource("data.sql").getPath())));
         } catch (SQLException e) {
             logger.error("Error inserting data: ", e);
             throw new RuntimeException(e);
