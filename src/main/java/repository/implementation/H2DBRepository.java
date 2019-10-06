@@ -113,8 +113,6 @@ public class H2DBRepository implements DBRepository {
         logger.info("Insert data  from sql file ");
 
         try {
-            File f = new File("data.sql");
-            f.exists();
             RunScript.execute(connection, new FileReader(String.valueOf(H2DBRepository.class.getClassLoader()
                     .getResource("data.sql").getPath())));
         } catch (SQLException e) {
